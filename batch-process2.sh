@@ -12,6 +12,7 @@ file_specification() {
 #       NAME="${FILE_NAME%.*}"
 #       EXT="${FILE_NAME##*.}"
         SIZE="$(du -sh "${entry}" | cut -f1)"
+        WORD_COUNT="$(wc -w FILE_NAME | cut -d' ' f1)"
 
         printf "%*s${GRE}%s${NCL}\n"                    $((indent+4)) '' "${entry}"
         printf "%*s\tFile name:\t${YEL}%s${NCL}\n"      $((indent+4)) '' "$FILE_NAME"
@@ -19,6 +20,7 @@ file_specification() {
 #       printf "%*s\tName only:\t${YEL}%s${NCL}\n"      $((indent+4)) '' "$NAME"
 #       printf "%*s\tExtension:\t${YEL}%s${NCL}\n"      $((indent+4)) '' "$EXT"
         printf "%*s\tFile size:\t${YEL}%s${NCL}\n"      $((indent+4)) '' "$SIZE"
+        printf "%*s\tWord count:\t${YEL}%s${NCL}\n"      $((indent+4)) '' "$WORD_COUNT"
 }
 
 walk() {
